@@ -30,16 +30,14 @@ argo-cd:
     enabled: false
 
   server:
-    certificate:
-      enabled: true
-      domain: argocd.carstens.tech
-      issuer:
-        group: cert-manager.io
-        kind: ClusterIssuer
-        name: letsencrypt-issuer
-
     ingress:
       enabled: true
+      hosts:
+        - argocd.carstens.tech
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-issuer
+        cert-manager.io/issue-temporary-certificate: "false"\
+        kubernetes.io/tls-acme: "true"
 
   applicationSet:
     enabled: false
