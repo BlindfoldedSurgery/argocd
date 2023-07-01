@@ -38,6 +38,10 @@ argo-cd:
         cert-manager.io/cluster-issuer: letsencrypt-issuer
         cert-manager.io/issue-temporary-certificate: "false"
         kubernetes.io/tls-acme: "true"
+      tls:
+        - secretName: argocd-tls
+          hosts:
+            - argocd.carstens.tech
 
   applicationSet:
     enabled: false
