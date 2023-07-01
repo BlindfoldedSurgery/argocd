@@ -12,7 +12,7 @@ argo-cd:
         name: istio
         url: https://istio-release.storage.googleapis.com/charts
     cm:
-      url: argocd.carstens.tech
+      url: https://argocd.carstens.tech
       # TODO: create SealedSecret for clientSecret
       # admin.enabled: false
     # dex.config:
