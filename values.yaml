@@ -36,7 +36,7 @@ argo-cd:
         - argocd.carstens.tech
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-issuer
-        cert-manager.io/issue-temporary-certificate: "false"\
+        cert-manager.io/issue-temporary-certificate: "false"
         kubernetes.io/tls-acme: "true"
 
   applicationSet:
