@@ -42,6 +42,7 @@ argo-cd:
         - secretName: argocd-tls
           hosts:
             - argocd.carstens.tech
+      ingressClassName: nginx
 
   applicationSet:
     enabled: false
