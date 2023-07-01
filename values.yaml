@@ -1,0 +1,49 @@
+github:
+  clientSecret: VE9ETw==
+
+argo-cd:
+  global:
+    logging:
+      format: json
+
+  configs:
+    repositories:
+      istio-helm-repo:
+        type: helm
+        name: istio
+        url: https://istio-release.storage.googleapis.com/charts
+    cm:
+      url: argocd.carstens.tech
+      # TODO: create SealedSecret for clientSecret
+      # admin.enabled: false
+    # dex.config:
+    #   connectors:
+    #     - type: github
+    #       id: github
+    #       name: GitHub
+    #       config:
+    #         clientId: ...
+    #         clientSecret: $github-secret.github.clientSecret
+    #         orgs:
+    #         - name: OpenAlcoholics
+
+  dex:
+    enabled: false
+
+  server:
+    certificate:
+      enabled: true
+      domain: argocd.carstens.tech
+      issuer:
+        group: cert-manager.io
+        kind: ClusterIssuer
+        name: letsencrypt-issuer
+
+    ingress:
+      enabled: true
+
+  applicationSet:
+    enabled: false
+
+  notifications:
+    enabled: false
