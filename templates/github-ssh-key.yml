@@ -1,0 +1,10 @@
+# https://github.com/argoproj/argo-helm/blob/main/charts/argo-cd/templates/argocd-configs/repository-credentials-secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: argocd-repo-creds-ssh-creds
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repo-creds
+data: 
+  url: {{ "git@github.com" | b64enc }}
