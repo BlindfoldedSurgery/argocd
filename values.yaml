@@ -2,6 +2,7 @@ argo-cd:
   global:
     logging:
       format: json
+      level: warn
 
   configs:
     params:
