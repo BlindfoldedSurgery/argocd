@@ -25,7 +25,7 @@ argo-cd:
     #         clientId: ...
     #         clientSecret: $github-secret.github.clientSecret
     #         orgs:
-    #         - name: OpenAlcoholics
+    #         - name: BlindfoldedSurgery
 
   dex:
     enabled: false
