@@ -42,7 +42,7 @@ argo-cd:
       tls:
         - secretName: argocd-tls
           hosts:
-            - argocd.woog.chat
+            - argocd.blindfolded.surgery
       ingressClassName: nginx
       https: false
 
