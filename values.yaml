@@ -34,7 +34,7 @@ argo-cd:
     ingress:
       enabled: true
       hosts:
-        - argocd.woog.chat
+        - argocd.blindfolded.surgery
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-issuer
         cert-manager.io/issue-temporary-certificate: "false"
