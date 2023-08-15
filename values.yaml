@@ -13,7 +13,7 @@ argo-cd:
         name: rancher
         url: https://charts.rancher.io
     cm:
-      url: https://argocd.woog.chat
+      url: https://argocd.blindfolded.surgery
       # TODO: create SealedSecret for clientSecret
       # admin.enabled: false
     # dex.config:
