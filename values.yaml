@@ -1,3 +1,13 @@
+github:
+  namespace: argocd
+  clientSecret:
+    name: github-secret
+    secretStoreName: mgmt-prod
+    data:
+    - secretKey: dex.github.clientSecret
+      remoteRef:
+        key: ARGOCD_GITHUB_CLIENT_SECRET
+
 argo-cd:
   global:
     logging:
@@ -16,19 +26,19 @@ argo-cd:
       url: https://argocd.blindfolded.surgery
       # TODO: create SealedSecret for clientSecret
       # admin.enabled: false
-    # dex.config:
-    #   connectors:
-    #     - type: github
-    #       id: github
-    #       name: GitHub
-    #       config:
-    #         clientId: ...
-    #         clientSecret: $github-secret.github.clientSecret
-    #         orgs:
-    #         - name: BlindfoldedSurgery
+    dex.config:
+      connectors:
+        - type: github
+          id: github
+          name: GitHub
+          config:
+            clientId: e8f50f1c89197fa53980
+            clientSecret: $github-secret.dex.github.clientSecret
+            orgs:
+            - name: BlindfoldedSurgery
 
   dex:
-    enabled: false
+    enabled: true
 
   server:
     ingress:
