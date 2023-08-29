@@ -39,6 +39,7 @@ argo-cd:
     rbac:
       policy.csv: |
         g, BlindfoldedSurgery:Owners, role:admin
+      policy.default: "role:readonly"
 
   dex:
     enabled: true
