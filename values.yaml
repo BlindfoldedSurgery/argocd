@@ -4,7 +4,7 @@ github:
     name: github-secret
     secretStoreName: mgmt-prod
     data:
-    - secretKey: dex.github.clientSecret
+    - secretKey: clientSecret
       remoteRef:
         key: ARGOCD_GITHUB_CLIENT_SECRET
 
@@ -33,7 +33,7 @@ argo-cd:
             name: GitHub
             config:
               clientId: e8f50f1c89197fa53980
-              clientSecret: $github-secret.dex.github.clientSecret
+              clientSecret: $github-secret.clientSecret
               orgs:
               - name: BlindfoldedSurgery
     rbac:
