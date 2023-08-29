@@ -36,6 +36,9 @@ argo-cd:
               clientSecret: $github-secret.dex.github.clientSecret
               orgs:
               - name: BlindfoldedSurgery
+    rbac:
+      policy.csv: |
+        g, BlindfoldedSurgery:Owners, role:admin
 
   dex:
     enabled: true
