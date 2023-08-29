@@ -33,7 +33,7 @@ argo-cd:
             name: GitHub
             config:
               clientId: e8f50f1c89197fa53980
-              clientSecret: $github-secret.clientSecret
+              clientSecret: $github-secret:clientSecret
               orgs:
               - name: BlindfoldedSurgery
     rbac:
