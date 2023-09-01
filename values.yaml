@@ -24,7 +24,7 @@ argo-cd:
         url: https://charts.rancher.io
     cm:
       url: https://argocd.blindfolded.surgery
-      # admin.enabled: false
+      admin.enabled: false
       dex.config: |
         connectors:
           - type: github
