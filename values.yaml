@@ -85,7 +85,17 @@ argo-cd:
             description: >
               The application [{{`{{$labels.name}}`}} has not been healthy for over
               2 hours.
-
+        - alert: ArgoAppAutosyncDisabled
+          expr: |
+            argocd_app_info{autosync_enabled="false"} == 1
+          for: 2h
+          labels:
+            severity: info
+          annotations:
+            summary: "[{{`{{$labels.name}}`}}] Application autosync not enabled"
+            description: >
+              The applications [{{`{{$labels.name}}`}} autosync has been deactivated for over
+              2 hours.
   dex:
     enabled: true
 
