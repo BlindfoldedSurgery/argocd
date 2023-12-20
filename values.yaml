@@ -72,6 +72,19 @@ argo-cd:
               The application [{{`{{$labels.name}}`}} has not been synchronized for over
               12 hours which means that the state of this cloud has drifted away from the
               state inside Git.
+        - alert: ArgoAppNotHealthy
+          # see https://github.com/argoproj/argo-cd/issues/11261 for why rancher-monitoring is `ok` for `Progressing` status
+          expr: |
+            (argocd_app_info{health_status!="Healthy",name!="rancher-monitoring"} == 1
+            or argocd_app_info{health_status!~"Healthy|Progressing",name="rancher-monitoring"} == 1)
+          for: 2h
+          labels:
+            severity: critical
+          annotations:
+            summary: "[{{`{{$labels.name}}`}}] Application not healthy"
+            description: >
+              The application [{{`{{$labels.name}}`}} has not been healthy for over
+              2 hours.
 
   dex:
     enabled: true
