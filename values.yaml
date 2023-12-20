@@ -40,6 +40,12 @@ argo-cd:
         g, BlindfoldedSurgery:Owners, role:admin
       policy.default: "role:readonly"
 
+  controller:
+    metrics:
+      enabled: true
+      rules:
+        enabled: true
+
   dex:
     enabled: true
 
