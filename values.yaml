@@ -102,16 +102,12 @@ argo-cd:
   server:
     ingress:
       enabled: true
-      hosts:
-        - argocd.blindfolded.surgery
+      hostname: argocd.blindfolded.surgery
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-issuer
         cert-manager.io/issue-temporary-certificate: "false"
         kubernetes.io/tls-acme: "true"
-      tls:
-        - secretName: argocd-tls
-          hosts:
-            - argocd.blindfolded.surgery
+      tls: true
       ingressClassName: nginx
       https: false
 
